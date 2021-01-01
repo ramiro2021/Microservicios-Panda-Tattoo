@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Tatuadores")
+
 public class Tatuador {
 
 	@Id
@@ -35,8 +36,8 @@ public class Tatuador {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
 	
-	
-	@JsonIgnoreProperties(value = {"tatuador"}, allowSetters = true)
+	//@JsonIgnoreProperties(value = {"tatuador"} , allowSetters = true)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "tatuador"})
 	@OneToMany(mappedBy = "tatuador", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Trabajo> trabajos;
 	
