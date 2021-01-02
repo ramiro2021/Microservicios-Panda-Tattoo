@@ -38,12 +38,12 @@ public class CommonController <E, S extends ICommonService<E>> {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> ver(@PathVariable long id) {
 		
-		Optional<E> alumnoOptional = service.findOne(id);
-		if (alumnoOptional.isEmpty()) {
+		Optional<E> EOptional = service.findOne(id);
+		if (EOptional.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		return ResponseEntity.ok().body(alumnoOptional.get());
+		return ResponseEntity.ok().body(EOptional.get());
 		
 	}
 	

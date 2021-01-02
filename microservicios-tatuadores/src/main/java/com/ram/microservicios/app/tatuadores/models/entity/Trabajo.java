@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -47,6 +48,11 @@ public class Trabajo {
 	
 	@ManyToOne()
 	private Estilo estilo;
+	
+	
+	@Lob
+	@JsonIgnore
+	private byte[] foto;
 
 	@PrePersist
 	public void prePersist() {
@@ -99,6 +105,18 @@ public class Trabajo {
 
 	public void setEstilo(Estilo estilo) {
 		this.estilo = estilo;
+	}
+	
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	
+	public Integer getFotoHashCode() {
+		return (this.foto != null) ? this.foto.hashCode(): null;
 	}
 	
 	

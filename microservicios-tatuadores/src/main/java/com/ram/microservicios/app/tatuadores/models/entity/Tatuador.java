@@ -11,12 +11,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -40,6 +42,10 @@ public class Tatuador {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "tatuador"})
 	@OneToMany(mappedBy = "tatuador", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Trabajo> trabajos;
+	
+	@Lob
+	@JsonIgnore
+	private byte[] foto;
 	
 	
 	@PrePersist
@@ -110,6 +116,18 @@ public class Tatuador {
 	public void removeTrabajos(Trabajo trabajo) {
 		this.trabajos.remove(trabajo);
 		trabajo.setTatuador(null);
+	}
+	
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	
+	public Integer getFotoHashCode() {
+		return (this.foto != null) ? this.foto.hashCode(): null;
 	}
 	
 	
