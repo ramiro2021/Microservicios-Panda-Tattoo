@@ -137,4 +137,9 @@ public class TatuadorController extends CommonController<Tatuador, ITatuadorServ
 			return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imagen);
 		}
 	
+		//buscador por nombre	
+		@GetMapping("/filtrar/{term}")
+		public ResponseEntity<?> filtrar(@PathVariable String term) {
+			return ResponseEntity.ok(service.findByName(term));
+		}
 }
