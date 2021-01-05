@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -66,20 +65,31 @@ public class InsumoController extends CommonController<Insumo, IInsumoService> {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(insumoDB));
 
 	}
-	
+
 	// recuperar imagen de insumo de la base de datos
 	@GetMapping("/uploads/insumo-img/{id}")
-	public ResponseEntity<?> verImgInsumo(@PathVariable Long id){
+	public ResponseEntity<?> verImgInsumo(@PathVariable Long id) {
 		Optional<Insumo> insumoOptional = service.findOne(id);
-		
+
 		if (insumoOptional.isEmpty() || insumoOptional.get().getFoto() == null) {
 			return ResponseEntity.notFound().build();
 		}
-		
+
 		Resource imagen = new ByteArrayResource(insumoOptional.get().getFoto());
-		
+
 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imagen);
 	}
-	
+
+	// buscador de insumos por nombre
+	@GetMapping("/filtrar-insumo/{term}")
+	public ResponseEntity<?> filterByName(@PathVariable String term) {
+		return ResponseEntity.ok(service.findByNameInsumo(term));
+	}
+
+	// buscador de insumos por nombre de categoria
+	@GetMapping("/filtrar-insumo/{term}")
+	public ResponseEntity<?> filterByCategory(@PathVariable String term) {
+		return ResponseEntity.ok(service.findByNameCategory(term));
+	}
 
 }
