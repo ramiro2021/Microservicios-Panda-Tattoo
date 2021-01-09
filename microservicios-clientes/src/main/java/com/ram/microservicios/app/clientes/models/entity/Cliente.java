@@ -58,12 +58,16 @@ public class Cliente {
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
+	
 	public boolean isActivo() {
 		return activo;
 	}
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
+	
+	
+	
 	public List<Domicilio> getDomicilio() {
 		return domicilio;
 	}
