@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ram.microservicios.app.tatuadores.models.entity.Trabajo;
 import com.ram.microservicios.app.tatuadores.models.repository.ITrabajoRepository;
 import com.ram.microservicios.commons.services.CommonServiceImpl;
+import com.ram.microservicios.commons.tatuadores.models.entity.Trabajo;
 
 @Service
 public class TrabajoServiceImpl extends CommonServiceImpl<Trabajo, ITrabajoRepository> implements ITrabajoService {

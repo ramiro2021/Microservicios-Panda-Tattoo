@@ -1,4 +1,4 @@
-package com.ram.microservicios.app.tatuadores.models.entity;
+package com.ram.microservicios.commons.tatuadores.models.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ram.microservicios.app.tatuadores.models.entity.Tatuador;
 import com.ram.microservicios.app.tatuadores.models.repository.ITatuadorRepository;
 import com.ram.microservicios.commons.services.CommonServiceImpl;
+import com.ram.microservicios.commons.tatuadores.models.entity.Tatuador;
 
 @Service
 public class TatuadorServiceImpl extends CommonServiceImpl<Tatuador, ITatuadorRepository> implements ITatuadorService {

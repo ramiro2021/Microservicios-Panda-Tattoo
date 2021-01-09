@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ram.microservicios.app.tatuadores.models.entity.Tatuador;
-import com.ram.microservicios.app.tatuadores.models.entity.Trabajo;
 import com.ram.microservicios.app.tatuadores.services.ITatuadorService;
 import com.ram.microservicios.commons.controllers.CommonController;
+import com.ram.microservicios.commons.tatuadores.models.entity.Tatuador;
+import com.ram.microservicios.commons.tatuadores.models.entity.Trabajo;
 
 @RestController
 public class TatuadorController extends CommonController<Tatuador, ITatuadorService> {
