@@ -2,7 +2,7 @@ package com.ram.microservicios.app.insumos.services;
 
 import java.util.List;
 
-import com.ram.microservicios.app.insumos.models.entity.Insumo;
+import com.ram.microservicios.commons.insumos.models.entity.Insumo;
 import com.ram.microservicios.commons.services.ICommonService;
 
 public interface IInsumoService extends ICommonService<Insumo> {

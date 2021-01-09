@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ram.microservicios.app.insumos.models.entity.Insumo;
 import com.ram.microservicios.app.insumos.models.repository.IInsumoRepository;
+import com.ram.microservicios.commons.insumos.models.entity.Insumo;
 import com.ram.microservicios.commons.services.CommonServiceImpl;
 
 @Service

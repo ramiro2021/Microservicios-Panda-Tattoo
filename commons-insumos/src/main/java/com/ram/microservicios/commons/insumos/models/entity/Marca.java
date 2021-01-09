@@ -1,4 +1,4 @@
-package com.ram.microservicios.app.insumos.models.entity;
+package com.ram.microservicios.commons.insumos.models.entity;
 
 import java.util.ArrayList;
 import java.util.List;

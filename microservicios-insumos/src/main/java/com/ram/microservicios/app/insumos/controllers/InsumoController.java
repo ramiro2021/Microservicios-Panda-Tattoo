@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ram.microservicios.app.insumos.models.entity.Insumo;
 import com.ram.microservicios.app.insumos.services.IInsumoService;
 import com.ram.microservicios.commons.controllers.CommonController;
+import com.ram.microservicios.commons.insumos.models.entity.Insumo;
 
 @RestController
 public class InsumoController extends CommonController<Insumo, IInsumoService> {
@@ -87,7 +87,7 @@ public class InsumoController extends CommonController<Insumo, IInsumoService> {
 	}
 
 	// buscador de insumos por nombre de categoria
-	@GetMapping("/filtrar-insumo/{term}")
+	@GetMapping("/filtrar-insumo-categoria/{term}")
 	public ResponseEntity<?> filterByCategory(@PathVariable String term) {
 		return ResponseEntity.ok(service.findByNameCategory(term));
 	}
